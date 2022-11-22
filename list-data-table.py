@@ -6,6 +6,7 @@ conn = connect(
     host = "pg-container",
     password = "fiap"
 )
+
 cursor = conn.cursor()
 cursor.execute(f"SELECT * FROM my_table;")
 
