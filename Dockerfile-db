@@ -1,0 +1,6 @@
+FROM postgres:latest
+
+# Alterações sobre a imagem base
+
+# Adiciona o script de configuração do banco de dados
+COPY init.sql /docker-entrypoint-initdb.d/

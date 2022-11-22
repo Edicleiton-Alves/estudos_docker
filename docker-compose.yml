@@ -1,0 +1,21 @@
+version: "3"
+services:
+  script-python:
+    build: .
+    links:
+      - pg-container
+    depends_on:
+      - pg-container
+    restart: on-failure
+  pg-container:
+    build:
+      context: .
+      dockerfile: Dockerfile-db
+    environment:
+      - POSTGRES_USER=edi
+      - POSTGRES_PASSWORD=fiap
+      - POSTGRES_DB=dock_db
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+volumes:
+  pg-data: {}
